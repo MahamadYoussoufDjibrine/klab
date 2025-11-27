@@ -4,31 +4,337 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mahamat Youssouf - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ------------------ GLOBAL STYLE ------------------ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #F5F9FF;
+      color: #071739;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .btn {
+      background: #0A4DFF;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #2EDFD3;
+      color: #071739;
+    }
+
+    .small {
+      padding: 8px 18px;
+      font-size: 14px;
+    }
+
+    /* ------------------ NAVBAR ------------------ */
+    header {
+      width: 100%;
+      padding: 20px 60px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      z-index: 100;
+      transition: 0.4s;
+    }
+
+    .nav-shadow {
+      background: #ffffffea;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #071739;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #071739;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0A4DFF;
+    }
+
+    /* ------------------ HERO SECTION ------------------ */
+    .hero {
+      margin-top: 100px;
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-left {
+      max-width: 600px;
+      animation: slideUp 1s ease forwards;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #2EDFD3;
+      font-weight: 600;
+    }
+
+    .hero-left h1 {
+      font-size: 52px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      margin: 10px 0 25px;
+    }
+
+    .social-icons i {
+      font-size: 22px;
+      margin-right: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .social-icons i:hover {
+      color: #0A4DFF;
+    }
+
+    .hero-img img {
+      width: 420px;
+      height: auto;
+      border-radius: 30px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes slideUp {
+      0% {opacity: 0; transform: translateY(40px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    /* ------------------ ABOUT SECTION ------------------ */
+    .about {
+      margin-top: 80px;
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about-img img {
+      width: 380px;
+      border-radius: 20px;
+    }
+
+    .about-text {
+      max-width: 550px;
+    }
+
+    .about-text h2 span {
+      color: #0A4DFF;
+    }
+
+    /* ------------------ SERVICES ------------------ */
+    .services {
+      text-align: center;
+      padding: 60px;
+    }
+
+    .service-boxes {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .box {
+      background: white;
+      padding: 25px;
+      width: 300px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    /* ------------------ PROJECTS ------------------ */
+    .projects {
+      padding: 60px;
+      text-align: center;
+    }
+
+    .projects-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .projects-grid img {
+      width: 100%;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .projects-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ------------------ EXPERIENCE ------------------ */
+    .experience {
+      padding: 60px;
+      text-align: center;
+    }
+
+    .exp-card {
+      background: white;
+      padding: 25px;
+      margin: 20px auto;
+      max-width: 700px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    /* ------------------ BLOG ------------------ */
+    .blog {
+      padding: 60px;
+      text-align: center;
+    }
+
+    .blog-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 15px;
+      padding-bottom: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .blog-card img {
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+    }
+
+    /* ------------------ CONTACT ------------------ */
+    .contact {
+      padding: 60px;
+      text-align: center;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input, textarea {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      outline: none;
+    }
+
+    textarea {
+      height: 120px;
+    }
+
+    /* ------------------ RESPONSIVE ------------------ */
+    @media (max-width: 900px) {
+      header { padding: 15px 30px; }
+      .nav-links { display: none; }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-img img { width: 300px; }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .service-boxes {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
   <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
   <!-- NAVBAR -->
-<header>
-<nav class="navbar">
-  <div class="logo">Mahamat Youssouf</div>
-
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="hamburger">&#9776;</label>
-
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <header id="navbar">
+    <nav>
+      <div class="logo">PORTFOLIO.</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- HERO SECTION -->
   <section class="hero">
@@ -36,9 +342,8 @@
       <p class="intro">Hi, it's me</p>
       <h1>MAHAMAT YOUSSOUF</h1>
       <p class="subtitle">
-        and I am a Software Engineer 💼<br>
-        Driving innovation strategy and digital transformation initiatives.<br> 
-        I champion emerging technologies, foster creative solutions, and lead R&D efforts to maintain competitive advantage.
+        Software Engineer & Innovation Lead<br><br>
+        Driving digital transformation, building modern systems, and leading R&D teams.
       </p>
 
       <div class="social-icons">
@@ -47,7 +352,7 @@
         <i class="fab fa-linkedin"></i>
       </div>
 
-      <a href="img/My__CV.pdf" class="btn" download>Download CV</a>
+      <a href="ab" id="cvBtn" class="btn">Download CV</a>
     </div>
 
     <div class="hero-img">
@@ -55,171 +360,53 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <div class="about-img">
-      <img src="img/pic4.jpg">
+  <!-- POPUP MODAL -->
+  <div id="popup" style="
+      display:none;
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;
+      background:#00000070;
+      backdrop-filter: blur(5px);
+      justify-content:center;
+      align-items:center;
+    ">
+    <div style="
+      background:white;
+      padding:40px;
+      border-radius:20px;
+      width:350px;
+      text-align:center;
+    ">
+      <h3>Download Ready</h3>
+      <p>Your CV will download automatically soon.</p>
+      <br>
+      <button onclick="closePopup()" class="btn small">Close</button>
     </div>
-
-    <div class="about-text">
-      <h2>About <span>Me</span></h2>
-      <h3>Leading Digital Transformation</h3>
-      <p>
-        As CEO & Co-Founder, I drive innovation strategy and spearhead digital transformation initiatives that 
-        position organizations at the forefront of technological advancement. My leadership focuses on leveraging 
-        emerging technologies to create sustainable competitive advantages.
-      </p>
-      <a href="#" class="btn small">See more</a>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="services">
-    <h2>My services</h2>
-
-    <div class="service-boxes">
-
-      <div class="box">
-        <h3>Link people</h3>
-        <p>My approach combines teamwork, design, and analysis to create human-centered systems and user-friendly interfaces.</p>
-        <a class="btn small">See Pro</a>
-      </div>
-
-      <div class="box">
-        <h3>Web Development</h3>
-        <p>I create powerful websites and platforms with modern technologies, ensuring seamless performance.</p>
-        <a class="btn small">See Pro</a>
-      </div>
-
-      <div class="box">
-        <h3>Innovation</h3>
-        <p>I help organizations innovate through emerging technologies, R&D, and modern digital solutions.</p>
-        <a class="btn small">See Pro</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects" id="projects">
-  <h2>My Projects</h2>
-
-  <div class="projects-grid">
-
-    <!-- Project 1 -->
-    <a href="https://foodbanksystem.netlify.app/" target="_blank" class="project-card">
-      <img src="img/foodbank.png" alt="Food Bank System">
-    </a>
-
-    <!-- Project 2 -->
-    <a href="https://aeestr.com/" target="_blank" class="project-card">
-      <img src="img/aeestr.png" alt="Aeestr Website">
-    </a>
-
-    <!-- Project 3 -->
-    <a href="https://chadnova.com/portfolio/software-development" target="_blank" class="project-card">
-      <img src="img/chadnova.png" alt="ChadNova Software Development">
-    </a>
-
-    <!-- Project 4 -->
-    <a href="#" class="project-card">
-      <img src="img/agrivison.png" alt="Agrivision Project">
-    </a>
-
   </div>
-</section>
 
 
-  <!-- EXPERIENCE -->
-  <section class="experience">
-    <h2>My Experience & Education</h2>
-    <p>A journey of innovation, learning and technical contribution</p>
+  <!-- JS -->
+  <script>
+    // Navbar shadow on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById("navbar");
+      if (window.scrollY > 80) nav.classList.add("nav-shadow");
+      else nav.classList.remove("nav-shadow");
+    });
 
-    <div class="exp-card">
-      <h3>CEO & Co-Founder</h3>
-      <p>2021 - Present<br> Twubake Digital Solutions</p>
-      <ul>
-        <li>Lead innovation strategy & digital transformation initiatives.</li>
-        <li>Managed and strengthened teams from 5 to 30+ professionals.</li>
-        <li>Implemented AI-ML solutions increasing decision-making efficiency by 60%.</li>
-      </ul>
-    </div>
+    // CV popup
+    const cvBtn = document.getElementById("cvBtn");
+    const popup = document.getElementById("popup");
 
-    <div class="exp-card">
-      <h3>Senior Software Engineer</h3>
-      <p>2018 - 2021<br> SmartFuture Tech</p>
-      <ul>
-        <li>Developed web & mobile applications.</li>
-        <li>Led backend optimization improving load time by 70%.</li>
-        <li>Collaborated with 1000+ users across Africa.</li>
-      </ul>
-    </div>
+    cvBtn.onclick = () => {
+      popup.style.display = "flex";
+      setTimeout(() => { /* simulate download */ }, 1500);
+    };
 
-    <div class="exp-card">
-      <h3>Master of Science in Computer Science</h3>
-      <p>University of Technology <br> Rwanda</p>
-      <ul>
-        <li>Specialized in AI, ML & Business Intelligence.</li>
-        <li>Thesis: AI-Driven Solutions for Agriculture.</li>
-        <li>Published research in IEEE 2024.</li>
-      </ul>
-    </div>
-
-  </section>
-
-  <!-- BLOG -->
-  <section class="blog">
-    <h2>My Blog</h2>
-
-    <div class="blog-grid">
-      <div class="blog-card">
-        <img src="img/blog1.jpeg">
-        <p>The Future of AI: Insights...</p>
-        <a href="#">Read More</a>
-      </div>
-
-      <div class="blog-card">
-        <img src="img/blog2.jpeg">
-        <p>How digital transformation...</p>
-        <a href="#">Read More</a>
-      </div>
-
-      <div class="blog-card">
-        <img src="img/blog3.jpeg">
-        <p>Understanding data security...</p>
-        <a href="#">Read More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact">
-    <h2>Contact Me</h2>
-
-    <form>
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name">
-      <input type="email" placeholder="Your email" required>
-      <textarea placeholder="Message"></textarea>
-      <button class="btn">Send</button>
-    </form>
-  </section>
-
-<script>
-  const burger = document.querySelector(".hamburger");
-  const mobileMenu = document.querySelector(".mobile-menu");
-
-  burger.addEventListener("click", () => {
-    mobileMenu.style.display =
-      mobileMenu.style.display === "flex" ? "none" : "flex";
-  });
-</script>
-<script>
-function toggleMenu() {
-  document.querySelector("nav ul").classList.toggle("show");
-}
-</script>
-
+    function closePopup() {
+      popup.style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
