@@ -15,7 +15,7 @@
     }
 
     body {
-      background: #F5F9FF;
+      background: #cacbcc;
       color: #071739;
       overflow-x: hidden;
     }
@@ -62,7 +62,7 @@
     }
 
     .nav-shadow {
-      background: #ffffffea;
+      background: #8b8a8aea;
       backdrop-filter: blur(8px);
       box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     }
@@ -112,7 +112,7 @@
 
     .intro {
       font-size: 18px;
-      color: #2EDFD3;
+      color: #216ec1;
       font-weight: 600;
     }
 
@@ -154,143 +154,33 @@
       0% {opacity: 0; transform: translateY(40px);}
       100% {opacity: 1; transform: translateY(0);}
     }
+    /* ------------------------------------
+   Home Section Social Media
+------------------------------------- */
+.social-links {
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+}
 
-    /* ------------------ ABOUT SECTION ------------------ */
-    .about {
-      margin-top: 80px;
-      padding: 60px;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
+.social-links a {
+  width: 45px;
+  height: 45px;
+  background: #0d3b66;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all .3s ease;
+}
 
-    .about-img img {
-      width: 380px;
-      border-radius: 20px;
-    }
-
-    .about-text {
-      max-width: 550px;
-    }
-
-    .about-text h2 span {
-      color: #0A4DFF;
-    }
-
-    /* ------------------ SERVICES ------------------ */
-    .services {
-      text-align: center;
-      padding: 60px;
-    }
-
-    .service-boxes {
-      display: flex;
-      gap: 25px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .box {
-      background: white;
-      padding: 25px;
-      width: 300px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
-
-    .box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    /* ------------------ PROJECTS ------------------ */
-    .projects {
-      padding: 60px;
-      text-align: center;
-    }
-
-    .projects-grid {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .projects-grid img {
-      width: 100%;
-      border-radius: 15px;
-      transition: 0.3s;
-    }
-
-    .projects-grid img:hover {
-      transform: scale(1.05);
-    }
-
-    /* ------------------ EXPERIENCE ------------------ */
-    .experience {
-      padding: 60px;
-      text-align: center;
-    }
-
-    .exp-card {
-      background: white;
-      padding: 25px;
-      margin: 20px auto;
-      max-width: 700px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
-
-    /* ------------------ BLOG ------------------ */
-    .blog {
-      padding: 60px;
-      text-align: center;
-    }
-
-    .blog-grid {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .blog-card {
-      background: white;
-      border-radius: 15px;
-      padding-bottom: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-
-    .blog-card img {
-      width: 100%;
-      border-radius: 15px 15px 0 0;
-    }
-
-    /* ------------------ CONTACT ------------------ */
-    .contact {
-      padding: 60px;
-      text-align: center;
-    }
-
-    form {
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    input, textarea {
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #cbd5e1;
-      outline: none;
-    }
-
-    textarea {
-      height: 120px;
-    }
+.social-links a:hover {
+  background: #2b73f0; /* turquoise */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
 
     /* ------------------ RESPONSIVE ------------------ */
     @media (max-width: 900px) {
@@ -345,6 +235,12 @@
         Software Engineer & Innovation Lead<br><br>
         Driving digital transformation, building modern systems, and leading R&D teams.
       </p>
+    <div class="social-links">
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin">Li</i></a>
+         <a href="https://github.com" target="_blank"><i class="fab fa-github"></i>Git</a>
+         <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i>X</a>
+         <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram">Inst</i></a>
+    </div>
 
       <div class="social-icons">
         <i class="fab fa-instagram"></i>
@@ -352,13 +248,16 @@
         <i class="fab fa-linkedin"></i>
       </div>
 
-      <a href="ab" id="cvBtn" class="btn">Download CV</a>
+      <a href="img/My__CV.pdf" class="btn small">Download CV</a>
     </div>
 
     <div class="hero-img">
       <img src="img/PIC.jpg" alt="Mahamat photo">
     </div>
+
+
   </section>
+
 
   <!-- POPUP MODAL -->
   <div id="popup" style="
@@ -408,5 +307,6 @@
     }
   </script>
 
+  
 </body>
 </html>

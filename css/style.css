@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #F5F9FF;
+  background: white;
   color: #071739;
   line-height: 1.6;
   overflow-x: hidden;
@@ -55,7 +55,7 @@ a {
   left: 0;
   padding: 18px 60px;
   width: 100%;
-  background: #ffffffde;
+  background: #8c8f91de;
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
@@ -553,5 +553,66 @@ a {
 @media (max-width: 600px) {
   .contact-form .form-row {
     flex-direction: column;
+  }
+}
+/* ================================
+   FOOTER STYLES
+=================================== */
+.footer {
+  margin-top: 80px;
+  background: #8f97a7;
+  color: #bbb5b5;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.footer-left p,
+.footer-left a {
+  color: #98a2bf;
+  font-size: 15px;
+}
+
+.footer-left a:hover {
+  color: #959b9b;
+}
+
+.footer-right a {
+  color: #b5afaf;
+  font-size: 22px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.footer-right a:hover {
+  color: #a0a5a5;
+  transform: translateY(-4px);
+}
+
+.footer-bottom {
+  margin-top: 25px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 }
